@@ -2,7 +2,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-       
 
+    <TextView
+        android:id="@+id/texViewDestiantion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewDistance"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:text="TextView" />
 
+    <TextView
+        android:id="@+id/textViewDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewGPSSignal"
+        android:layout_alignLeft="@+id/texViewDestiantion"
+        android:text="TextView" />
+    
+    
+       <TextView
+        android:id="@+id/textViewGPSSignal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="TextView" />
+    
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/compass" />
+
+ 
 </RelativeLayout>

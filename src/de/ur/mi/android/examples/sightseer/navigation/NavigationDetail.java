@@ -1,5 +1,7 @@
 package de.ur.mi.android.examples.sightseer.navigation;
 
+import de.ur.mi.android.examples.sightseer.views.NavigationActivity;
+
 
 public class NavigationDetail {
 	
@@ -14,6 +16,8 @@ public class NavigationDetail {
 	}
 
 	public String getTitle() {
+		String title = "";
+		
 		return title;
 	}
 

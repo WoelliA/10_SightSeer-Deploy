@@ -27,6 +27,7 @@ public class LocationListAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
+		
 		return locations.get(position);
 	}
 

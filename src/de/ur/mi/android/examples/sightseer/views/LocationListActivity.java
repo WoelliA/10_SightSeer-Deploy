@@ -20,6 +20,8 @@ import de.ur.mi.android.examples.sightseer.data.DataController;
 import de.ur.mi.android.examples.sightseer.data.IDataListener;
 import de.ur.mi.android.examples.sightseer.data.LocationDatabase;
 import de.ur.mi.android.examples.sightseer.data.PointOfInterest;
+import de.ur.mi.android.examples.sightseer.helpers.IntentHelper;
+import de.ur.mi.android.examples.sightseer.navigation.NavigationController;
 import android.content.DialogInterface.OnClickListener;
 
 public class LocationListActivity extends Activity implements IDataListener, OnItemClickListener{
@@ -129,8 +131,11 @@ public class LocationListActivity extends Activity implements IDataListener, OnI
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		 
-		
+			Object item = (Object) adapter.getItem(arg2);
+			PointOfInterest poi = (PointOfInterest) item;
+			
+			IntentHelper.navigateTo(this, NavigationActivity.class, poi);
+			
 	}
 
 }
