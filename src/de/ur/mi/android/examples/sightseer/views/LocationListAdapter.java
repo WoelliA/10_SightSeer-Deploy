@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 import de.ur.mi.android.examples.sightseer.R;
 import de.ur.mi.android.examples.sightseer.data.PointOfInterest;
 
@@ -42,7 +43,10 @@ public class LocationListAdapter extends BaseAdapter {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = infalInflater.inflate(R.layout.location_list_item, null);
         }
-		
+		TextView itemTitle = (TextView) convertView.findViewById(R.id.itemTitle);
+		itemTitle.setText(locations.get(position).toString());
+		TextView itemText = (TextView)	convertView.findViewById(R.id.itemText);
+		itemText.setText(locations.get(position).toString());
         return convertView;
 	}
 	

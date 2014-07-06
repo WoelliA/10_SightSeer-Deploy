@@ -35,8 +35,10 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
+        public static final int itemText=0x7f090002;
+        public static final int itemTitle=0x7f090001;
         public static final int listViewLocations=0x7f090000;
-        public static final int menu_update_sights=0x7f090001;
+        public static final int menu_update_sights=0x7f090003;
     }
     public static final class layout {
         public static final int location_list_activity=0x7f030000;
