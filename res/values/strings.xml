@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SightSeer</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_title_update">Update</string>
+    <string name="error_dialog_confirm">OK</string>
+    <string name="network_error_title">Network Error</string>
+	<string name="network_error_text">Internet connection is not available. Check connection and try again.</string>
+	<string name="error_dialog_dismiss_text">OK</string>
+    
+
+</resources>
