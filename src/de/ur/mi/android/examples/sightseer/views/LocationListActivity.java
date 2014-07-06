@@ -4,12 +4,16 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.LauncherActivity.ListItem;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import de.ur.mi.android.examples.sightseer.R;
 import de.ur.mi.android.examples.sightseer.data.DataController;
@@ -18,7 +22,7 @@ import de.ur.mi.android.examples.sightseer.data.LocationDatabase;
 import de.ur.mi.android.examples.sightseer.data.PointOfInterest;
 import android.content.DialogInterface.OnClickListener;
 
-public class LocationListActivity extends Activity implements IDataListener {
+public class LocationListActivity extends Activity implements IDataListener, OnItemClickListener{
 
 	ListView listView;
 	LocationDatabase db;
@@ -46,6 +50,8 @@ public class LocationListActivity extends Activity implements IDataListener {
 	private void initUI() {
 		setContentView(R.layout.location_list_activity);
 		listView = (ListView) findViewById(R.id.listViewLocations);
+		listView.setOnItemClickListener(this);
+
 	}
 
 	private void initLocationData() {
@@ -119,6 +125,12 @@ public class LocationListActivity extends Activity implements IDataListener {
 		// TODO Auto-generated method stub
 		adapter = new LocationListAdapter(this, pois);
 		listView.setAdapter(adapter);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		 
+		
 	}
 
 }
