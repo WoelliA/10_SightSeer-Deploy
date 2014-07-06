@@ -13,9 +13,10 @@ import de.ur.mi.android.examples.sightseer.config.AppConfig;
 public class LocationDatabase {
 	@SuppressWarnings("unused")
 	private LocationDatabaseHelper helper;
-
+	
 	public LocationDatabase(Context context) {
 		helper = new LocationDatabaseHelper(context, AppConfig.Data.DATABASE_KEY, null, AppConfig.Data.DATABASE_VERSION);
+		
 	}
 
 	
@@ -51,7 +52,8 @@ public class LocationDatabase {
 
 
 	public void update(ArrayList<PointOfInterest> locations) {
-		// TODO Auto-generated method stub
+		SQLiteDatabase db = this.helper.getWritableDatabase();
+
 		for (int i = 0; i < locations.size(); i++) {
 			ContentValues values = new ContentValues();
 			PointOfInterest poi = locations.get(i);
@@ -62,12 +64,12 @@ public class LocationDatabase {
 			values.put( AppConfig.Data.LONGITUDE_KEY ,poi.getLocation().getLongitude());
 			values.put( AppConfig.Data.ALTITUDE_KEY ,poi.getLocation().getAltitude());
 			
-			SQLiteDatabase db = this.helper.getWritableDatabase();
-			int updateRows = db.update(AppConfig.Data.DATABASE_KEY, values, AppConfig.Data.ID_KEY+"=?", new String[]{poi.getId()+""});
+			
+			int updateRows = db.update(AppConfig.Data.TABLE_KEY, values, AppConfig.Data.ID_KEY+"=?", new String[]{poi.getId()+""});
 			if(updateRows == 0){
 				db.insert(AppConfig.Data.TABLE_KEY, null, values);
 			}
-		}
+		} db.close();
 	}
 
  }

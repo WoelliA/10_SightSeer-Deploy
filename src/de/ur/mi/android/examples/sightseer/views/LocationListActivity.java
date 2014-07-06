@@ -117,6 +117,7 @@ public class LocationListActivity extends Activity implements IDataListener {
 	public void onNewDataAvailable(ArrayList<PointOfInterest> pois) {
 		// TODO Auto-generated method stub
 		adapter = new LocationListAdapter(this, pois);
+		listView.setAdapter(adapter);
 	}
 
 
