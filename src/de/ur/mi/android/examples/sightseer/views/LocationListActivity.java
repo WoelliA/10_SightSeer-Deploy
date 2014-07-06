@@ -19,57 +19,50 @@ import de.ur.mi.android.examples.sightseer.data.PointOfInterest;
 import android.content.DialogInterface.OnClickListener;
 
 public class LocationListActivity extends Activity implements IDataListener {
-	
+
 	ListView listView;
 	LocationDatabase db;
 	LocationListAdapter adapter;
 	DataController controller;
 	ProgressDialog progressDialog;
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		init();
 	}
-	
+
 	private void init() {
 		initNavigation();
 		initUI();
 		initLocationData();
 	}
-	
+
 	private void initNavigation() {
-		
+
 	}
-	
+
 	private void initUI() {
 		setContentView(R.layout.location_list_activity);
 		listView = (ListView) findViewById(R.id.listViewLocations);
 	}
-	
-	
-	
+
 	private void initLocationData() {
 		controller = new DataController(this, this);
 		controller.startGetData();
-		
-		
-		
+
 	}
-	
-	
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		
+
 		switch (item.getItemId()) {
 		case R.id.menu_update_sights:
 			return true;
@@ -77,40 +70,48 @@ public class LocationListActivity extends Activity implements IDataListener {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
-		
+
 	}
 
 	@Override
 	public void onDataUpdateInitiated() {
-		// TODO Auto-generated method stub
-		
+		progressDialog = new ProgressDialog(this);
+		progressDialog.setTitle(getResources().getString(
+				R.string.update_dialog_title));
+		progressDialog.setMessage(getResources().getString(
+				R.string.update_dialog_text));
+		progressDialog.show();
+
 	}
 
 	@Override
 	public void onDataUpdateCanceled() {
-		if(progressDialog != null)
+		if (progressDialog != null)
 			progressDialog.dismiss();
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-			alertDialogBuilder.setTitle(getResources().getString(R.string.network_error_title));
-			alertDialogBuilder.setMessage(getResources().getString(R.string.network_error_text));
-			alertDialogBuilder.setCancelable(false);
-			alertDialogBuilder.setPositiveButton(R.string.error_dialog_dismiss_text, new OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface arg0, int arg1) {
-					controller.startGetData();
-					
-				}
-			});
-			alertDialogBuilder.create().show();
-		
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setTitle(getResources().getString(
+				R.string.network_error_title));
+		alertDialogBuilder.setMessage(getResources().getString(
+				R.string.network_error_text));
+		alertDialogBuilder.setCancelable(false);
+		alertDialogBuilder.setPositiveButton(R.string.error_dialog_confirm,
+				new OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						controller.startGetData();
+
+					}
+				});
+		alertDialogBuilder.create().show();
+
 	}
 
 	@Override
 	public void onDataUpdateCompleted() {
-		if(progressDialog != null)
+		if (progressDialog != null)
 			progressDialog.dismiss();
-		
+
 	}
 
 	@Override
@@ -119,6 +120,5 @@ public class LocationListActivity extends Activity implements IDataListener {
 		adapter = new LocationListAdapter(this, pois);
 		listView.setAdapter(adapter);
 	}
-
 
 }

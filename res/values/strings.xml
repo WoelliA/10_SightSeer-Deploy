@@ -7,7 +7,10 @@
     <string name="error_dialog_confirm">OK</string>
     <string name="network_error_title">Network Error</string>
 	<string name="network_error_text">Internet connection is not available. Check connection and try again.</string>
-	<string name="error_dialog_dismiss_text">OK</string>
+	<string name="content_description_flag">Flag-Icon</string>
+    <string name="update_dialog_title">Updating Results</string>
+	<string name="update_dialog_text">Downloading latest results</string>
+
     
 
 </resources>
