@@ -10,6 +10,9 @@
 	<string name="content_description_flag">Flag-Icon</string>
     <string name="update_dialog_title">Updating Results</string>
 	<string name="update_dialog_text">Downloading latest results</string>
+	<string name="destination_reached_dialog_text">You have reached your destination!</string>
+	<string name="destination_reached_dialog_title">Finally!</string>
+
 
     
 

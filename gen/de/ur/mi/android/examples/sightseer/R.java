@@ -35,7 +35,7 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int imageView=0x7f090006;
+        public static final int imageViewCompass=0x7f090006;
         public static final int itemText=0x7f090002;
         public static final int itemTitle=0x7f090001;
         public static final int listViewLocations=0x7f090000;
@@ -56,6 +56,8 @@ public final class R {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
         public static final int content_description_flag=0x7f060006;
+        public static final int destination_reached_dialog_text=0x7f060009;
+        public static final int destination_reached_dialog_title=0x7f06000a;
         public static final int error_dialog_confirm=0x7f060003;
         public static final int menu_title_update=0x7f060002;
         public static final int network_error_text=0x7f060005;
